@@ -1,4 +1,9 @@
+const { resolveInclude } = require('ejs');
 const User = require('../models/UserModel');
+
+exports.getHome = (req, res) => {
+    res.status(200).send('<h1>Welcome</h1>');
+}
 
 exports.checkAuth = (req, res) => {
     if (req.user) {
@@ -25,5 +30,5 @@ exports.login = (req, res) => {
 exports.logout = (req, res) => {
     req.session = null;
     req.logout();
-    res.redirect('/');
+    res.redirect('/home');
 };

@@ -5,6 +5,7 @@ const UserController = require('../controller/UserController');
 const router = express.Router();
 
 router.get('/', UserController.checkAuth);
+router.get('/home', UserController.getHome);
 router.get('/auth/google', passport.authenticate('google', {
     scope: ['email', 'profile']
 }));
